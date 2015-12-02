@@ -1,0 +1,13 @@
+.idea/
+*.iml
+*.csv
+.DS_Store
+target/
+*.swp
+*.log
+logs/
+/target
+.project
+.vagrant
+.classpath
+.settings
