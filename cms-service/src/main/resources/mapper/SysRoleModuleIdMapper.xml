@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysRoleModuleIdMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysRoleModuleId">
+        <result column="id" property="id"/>
+        <result column="role_id" property="roleId"/>
+        <result column="module_id" property="moduleId"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        role_id,
+        module_id
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_role_module_id
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.roleId != null"> role_id, </if>
+            <if test="pojo.moduleId != null"> module_id, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.roleId != null"> #{pojo.roleId}, </if>
+            <if test="pojo.moduleId != null"> #{pojo.moduleId}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_role_module_id(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.roleId},
+            #{pojo.moduleId}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_role_module_id
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.roleId != null"> role_id = #{pojo.roleId}, </if>
+            <if test="pojo.moduleId != null"> module_id = #{pojo.moduleId} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_role_module_id
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.roleId != null"> AND role_id = #{pojo.roleId} </if>
+            <if test="pojo.moduleId != null"> AND module_id = #{pojo.moduleId} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_role_module_id where id = #{id}
+    </delete>
+</mapper>

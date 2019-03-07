@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysUserMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysUser">
+        <result column="id" property="id"/>
+        <result column="site_id" property="siteId"/>
+        <result column="name" property="name"/>
+        <result column="password" property="password"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="dept_id" property="deptId"/>
+        <result column="roles" property="roles"/>
+        <result column="email" property="email"/>
+        <result column="last_login_date" property="lastLoginDate"/>
+        <result column="last_login_ip" property="lastLoginIp"/>
+        <result column="login_count" property="loginCount"/>
+        <result column="registered_date" property="registeredDate"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        site_id,
+        name,
+        password,
+        nick_name,
+        dept_id,
+        roles,
+        email,
+        last_login_date,
+        last_login_ip,
+        login_count,
+        registered_date
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.siteId != null"> site_id, </if>
+            <if test="pojo.name != null"> name, </if>
+            <if test="pojo.password != null"> password, </if>
+            <if test="pojo.nickName != null"> nick_name, </if>
+            <if test="pojo.deptId != null"> dept_id, </if>
+            <if test="pojo.roles != null"> roles, </if>
+            <if test="pojo.email != null"> email, </if>
+            <if test="pojo.lastLoginDate != null"> last_login_date, </if>
+            <if test="pojo.lastLoginIp != null"> last_login_ip, </if>
+            <if test="pojo.loginCount != null"> login_count, </if>
+            <if test="pojo.registeredDate != null"> registered_date, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> #{pojo.siteId}, </if>
+            <if test="pojo.name != null"> #{pojo.name}, </if>
+            <if test="pojo.password != null"> #{pojo.password}, </if>
+            <if test="pojo.nickName != null"> #{pojo.nickName}, </if>
+            <if test="pojo.deptId != null"> #{pojo.deptId}, </if>
+            <if test="pojo.roles != null"> #{pojo.roles}, </if>
+            <if test="pojo.email != null"> #{pojo.email}, </if>
+            <if test="pojo.lastLoginDate != null"> #{pojo.lastLoginDate}, </if>
+            <if test="pojo.lastLoginIp != null"> #{pojo.lastLoginIp}, </if>
+            <if test="pojo.loginCount != null"> #{pojo.loginCount}, </if>
+            <if test="pojo.registeredDate != null"> #{pojo.registeredDate}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_user(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.siteId},
+            #{pojo.name},
+            #{pojo.password},
+            #{pojo.nickName},
+            #{pojo.deptId},
+            #{pojo.roles},
+            #{pojo.email},
+            #{pojo.lastLoginDate},
+            #{pojo.lastLoginIp},
+            #{pojo.loginCount},
+            #{pojo.registeredDate}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_user
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> site_id = #{pojo.siteId}, </if>
+            <if test="pojo.name != null"> name = #{pojo.name}, </if>
+            <if test="pojo.password != null"> password = #{pojo.password}, </if>
+            <if test="pojo.nickName != null"> nick_name = #{pojo.nickName}, </if>
+            <if test="pojo.deptId != null"> dept_id = #{pojo.deptId}, </if>
+            <if test="pojo.roles != null"> roles = #{pojo.roles}, </if>
+            <if test="pojo.email != null"> email = #{pojo.email}, </if>
+            <if test="pojo.lastLoginDate != null"> last_login_date = #{pojo.lastLoginDate}, </if>
+            <if test="pojo.lastLoginIp != null"> last_login_ip = #{pojo.lastLoginIp}, </if>
+            <if test="pojo.loginCount != null"> login_count = #{pojo.loginCount}, </if>
+            <if test="pojo.registeredDate != null"> registered_date = #{pojo.registeredDate} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_user
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.siteId != null"> AND site_id = #{pojo.siteId} </if>
+            <if test="pojo.name != null"> AND name = #{pojo.name} </if>
+            <if test="pojo.password != null"> AND password = #{pojo.password} </if>
+            <if test="pojo.nickName != null"> AND nick_name = #{pojo.nickName} </if>
+            <if test="pojo.deptId != null"> AND dept_id = #{pojo.deptId} </if>
+            <if test="pojo.roles != null"> AND roles = #{pojo.roles} </if>
+            <if test="pojo.email != null"> AND email = #{pojo.email} </if>
+            <if test="pojo.lastLoginDate != null"> AND last_login_date = #{pojo.lastLoginDate} </if>
+            <if test="pojo.lastLoginIp != null"> AND last_login_ip = #{pojo.lastLoginIp} </if>
+            <if test="pojo.loginCount != null"> AND login_count = #{pojo.loginCount} </if>
+            <if test="pojo.registeredDate != null"> AND registered_date = #{pojo.registeredDate} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_user where id = #{id}
+    </delete>
+</mapper>

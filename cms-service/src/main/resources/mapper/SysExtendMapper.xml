@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysExtendMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysExtend">
+        <result column="id" property="id"/>
+        <result column="item_type" property="itemType"/>
+        <result column="item_id" property="itemId"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        item_type,
+        item_id
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_extend
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.itemType != null"> item_type, </if>
+            <if test="pojo.itemId != null"> item_id, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.itemType != null"> #{pojo.itemType}, </if>
+            <if test="pojo.itemId != null"> #{pojo.itemId}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_extend(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.itemType},
+            #{pojo.itemId}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_extend
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.itemType != null"> item_type = #{pojo.itemType}, </if>
+            <if test="pojo.itemId != null"> item_id = #{pojo.itemId} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_extend
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.itemType != null"> AND item_type = #{pojo.itemType} </if>
+            <if test="pojo.itemId != null"> AND item_id = #{pojo.itemId} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_extend where id = #{id}
+    </delete>
+</mapper>

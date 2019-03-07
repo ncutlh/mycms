@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.cms.CmsPlaceMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.cms.CmsPlace">
+        <result column="id" property="id"/>
+        <result column="site_id" property="siteId"/>
+        <result column="path" property="path"/>
+        <result column="user_id" property="userId"/>
+        <result column="item_type" property="itemType"/>
+        <result column="item_id" property="itemId"/>
+        <result column="title" property="title"/>
+        <result column="url" property="url"/>
+        <result column="cover" property="cover"/>
+        <result column="create_date" property="createDate"/>
+        <result column="publish_date" property="publishDate"/>
+        <result column="status" property="status"/>
+        <result column="clicks" property="clicks"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        site_id,
+        path,
+        user_id,
+        item_type,
+        item_id,
+        title,
+        url,
+        cover,
+        create_date,
+        publish_date,
+        status,
+        clicks
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO cms_place
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.siteId != null"> site_id, </if>
+            <if test="pojo.path != null"> path, </if>
+            <if test="pojo.userId != null"> user_id, </if>
+            <if test="pojo.itemType != null"> item_type, </if>
+            <if test="pojo.itemId != null"> item_id, </if>
+            <if test="pojo.title != null"> title, </if>
+            <if test="pojo.url != null"> url, </if>
+            <if test="pojo.cover != null"> cover, </if>
+            <if test="pojo.createDate != null"> create_date, </if>
+            <if test="pojo.publishDate != null"> publish_date, </if>
+            <if test="pojo.status != null"> status, </if>
+            <if test="pojo.clicks != null"> clicks, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> #{pojo.siteId}, </if>
+            <if test="pojo.path != null"> #{pojo.path}, </if>
+            <if test="pojo.userId != null"> #{pojo.userId}, </if>
+            <if test="pojo.itemType != null"> #{pojo.itemType}, </if>
+            <if test="pojo.itemId != null"> #{pojo.itemId}, </if>
+            <if test="pojo.title != null"> #{pojo.title}, </if>
+            <if test="pojo.url != null"> #{pojo.url}, </if>
+            <if test="pojo.cover != null"> #{pojo.cover}, </if>
+            <if test="pojo.createDate != null"> #{pojo.createDate}, </if>
+            <if test="pojo.publishDate != null"> #{pojo.publishDate}, </if>
+            <if test="pojo.status != null"> #{pojo.status}, </if>
+            <if test="pojo.clicks != null"> #{pojo.clicks}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO cms_place(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.siteId},
+            #{pojo.path},
+            #{pojo.userId},
+            #{pojo.itemType},
+            #{pojo.itemId},
+            #{pojo.title},
+            #{pojo.url},
+            #{pojo.cover},
+            #{pojo.createDate},
+            #{pojo.publishDate},
+            #{pojo.status},
+            #{pojo.clicks}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE cms_place
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> site_id = #{pojo.siteId}, </if>
+            <if test="pojo.path != null"> path = #{pojo.path}, </if>
+            <if test="pojo.userId != null"> user_id = #{pojo.userId}, </if>
+            <if test="pojo.itemType != null"> item_type = #{pojo.itemType}, </if>
+            <if test="pojo.itemId != null"> item_id = #{pojo.itemId}, </if>
+            <if test="pojo.title != null"> title = #{pojo.title}, </if>
+            <if test="pojo.url != null"> url = #{pojo.url}, </if>
+            <if test="pojo.cover != null"> cover = #{pojo.cover}, </if>
+            <if test="pojo.createDate != null"> create_date = #{pojo.createDate}, </if>
+            <if test="pojo.publishDate != null"> publish_date = #{pojo.publishDate}, </if>
+            <if test="pojo.status != null"> status = #{pojo.status}, </if>
+            <if test="pojo.clicks != null"> clicks = #{pojo.clicks} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM cms_place
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.siteId != null"> AND site_id = #{pojo.siteId} </if>
+            <if test="pojo.path != null"> AND path = #{pojo.path} </if>
+            <if test="pojo.userId != null"> AND user_id = #{pojo.userId} </if>
+            <if test="pojo.itemType != null"> AND item_type = #{pojo.itemType} </if>
+            <if test="pojo.itemId != null"> AND item_id = #{pojo.itemId} </if>
+            <if test="pojo.title != null"> AND title = #{pojo.title} </if>
+            <if test="pojo.url != null"> AND url = #{pojo.url} </if>
+            <if test="pojo.cover != null"> AND cover = #{pojo.cover} </if>
+            <if test="pojo.createDate != null"> AND create_date = #{pojo.createDate} </if>
+            <if test="pojo.publishDate != null"> AND publish_date = #{pojo.publishDate} </if>
+            <if test="pojo.status != null"> AND status = #{pojo.status} </if>
+            <if test="pojo.clicks != null"> AND clicks = #{pojo.clicks} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM cms_place where id = #{id}
+    </delete>
+</mapper>

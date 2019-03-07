@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysClusterMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysCluster">
+        <result column="uuid" property="uuid"/>
+        <result column="create_date" property="createDate"/>
+        <result column="heartbeat_date" property="heartbeatDate"/>
+        <result column="cms_version" property="cmsVersion"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        uuid,
+        create_date,
+        heartbeat_date,
+        cms_version
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_cluster
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.uuid != null"> uuid, </if>
+            <if test="pojo.createDate != null"> create_date, </if>
+            <if test="pojo.heartbeatDate != null"> heartbeat_date, </if>
+            <if test="pojo.cmsVersion != null"> cms_version, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.uuid != null"> #{pojo.uuid}, </if>
+            <if test="pojo.createDate != null"> #{pojo.createDate}, </if>
+            <if test="pojo.heartbeatDate != null"> #{pojo.heartbeatDate}, </if>
+            <if test="pojo.cmsVersion != null"> #{pojo.cmsVersion}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_cluster(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.uuid},
+            #{pojo.createDate},
+            #{pojo.heartbeatDate},
+            #{pojo.cmsVersion}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_cluster
+        <set>
+            <if test="pojo.uuid != null"> uuid = #{pojo.uuid}, </if>
+            <if test="pojo.createDate != null"> create_date = #{pojo.createDate}, </if>
+            <if test="pojo.heartbeatDate != null"> heartbeat_date = #{pojo.heartbeatDate}, </if>
+            <if test="pojo.cmsVersion != null"> cms_version = #{pojo.cmsVersion} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_cluster
+        <where>
+            <if test="pojo.uuid != null"> AND uuid = #{pojo.uuid} </if>
+            <if test="pojo.createDate != null"> AND create_date = #{pojo.createDate} </if>
+            <if test="pojo.heartbeatDate != null"> AND heartbeat_date = #{pojo.heartbeatDate} </if>
+            <if test="pojo.cmsVersion != null"> AND cms_version = #{pojo.cmsVersion} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_cluster where id = #{id}
+    </delete>
+</mapper>

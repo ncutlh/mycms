@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysAppClientIdMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysAppClientId">
+        <result column="site_id" property="siteId"/>
+        <result column="channel" property="channel"/>
+        <result column="uuid" property="uuid"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        site_id,
+        channel,
+        uuid
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_app_client_id
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.siteId != null"> site_id, </if>
+            <if test="pojo.channel != null"> channel, </if>
+            <if test="pojo.uuid != null"> uuid, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.siteId != null"> #{pojo.siteId}, </if>
+            <if test="pojo.channel != null"> #{pojo.channel}, </if>
+            <if test="pojo.uuid != null"> #{pojo.uuid}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_app_client_id(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.siteId},
+            #{pojo.channel},
+            #{pojo.uuid}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_app_client_id
+        <set>
+            <if test="pojo.siteId != null"> site_id = #{pojo.siteId}, </if>
+            <if test="pojo.channel != null"> channel = #{pojo.channel}, </if>
+            <if test="pojo.uuid != null"> uuid = #{pojo.uuid} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_app_client_id
+        <where>
+            <if test="pojo.siteId != null"> AND site_id = #{pojo.siteId} </if>
+            <if test="pojo.channel != null"> AND channel = #{pojo.channel} </if>
+            <if test="pojo.uuid != null"> AND uuid = #{pojo.uuid} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_app_client_id where id = #{id}
+    </delete>
+</mapper>

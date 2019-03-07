@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysAppClientMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysAppClient">
+        <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="client_version" property="clientVersion"/>
+        <result column="last_login_date" property="lastLoginDate"/>
+        <result column="last_login_ip" property="lastLoginIp"/>
+        <result column="create_date" property="createDate"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        user_id,
+        client_version,
+        last_login_date,
+        last_login_ip,
+        create_date
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_app_client
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.userId != null"> user_id, </if>
+            <if test="pojo.clientVersion != null"> client_version, </if>
+            <if test="pojo.lastLoginDate != null"> last_login_date, </if>
+            <if test="pojo.lastLoginIp != null"> last_login_ip, </if>
+            <if test="pojo.createDate != null"> create_date, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.userId != null"> #{pojo.userId}, </if>
+            <if test="pojo.clientVersion != null"> #{pojo.clientVersion}, </if>
+            <if test="pojo.lastLoginDate != null"> #{pojo.lastLoginDate}, </if>
+            <if test="pojo.lastLoginIp != null"> #{pojo.lastLoginIp}, </if>
+            <if test="pojo.createDate != null"> #{pojo.createDate}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_app_client(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.userId},
+            #{pojo.clientVersion},
+            #{pojo.lastLoginDate},
+            #{pojo.lastLoginIp},
+            #{pojo.createDate}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_app_client
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.userId != null"> user_id = #{pojo.userId}, </if>
+            <if test="pojo.clientVersion != null"> client_version = #{pojo.clientVersion}, </if>
+            <if test="pojo.lastLoginDate != null"> last_login_date = #{pojo.lastLoginDate}, </if>
+            <if test="pojo.lastLoginIp != null"> last_login_ip = #{pojo.lastLoginIp}, </if>
+            <if test="pojo.createDate != null"> create_date = #{pojo.createDate} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_app_client
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.userId != null"> AND user_id = #{pojo.userId} </if>
+            <if test="pojo.clientVersion != null"> AND client_version = #{pojo.clientVersion} </if>
+            <if test="pojo.lastLoginDate != null"> AND last_login_date = #{pojo.lastLoginDate} </if>
+            <if test="pojo.lastLoginIp != null"> AND last_login_ip = #{pojo.lastLoginIp} </if>
+            <if test="pojo.createDate != null"> AND create_date = #{pojo.createDate} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_app_client where id = #{id}
+    </delete>
+</mapper>

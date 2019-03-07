@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.cms.CmsContentAttributeMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.cms.CmsContentAttribute">
+        <result column="id" property="id"/>
+        <result column="content_id" property="contentId"/>
+        <result column="source" property="source"/>
+        <result column="source_url" property="sourceUrl"/>
+        <result column="data" property="data"/>
+        <result column="text" property="text"/>
+        <result column="word_count" property="wordCount"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        content_id,
+        source,
+        source_url,
+        data,
+        text,
+        word_count
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO cms_content_attribute
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.contentId != null"> content_id, </if>
+            <if test="pojo.source != null"> source, </if>
+            <if test="pojo.sourceUrl != null"> source_url, </if>
+            <if test="pojo.data != null"> data, </if>
+            <if test="pojo.text != null"> text, </if>
+            <if test="pojo.wordCount != null"> word_count, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.contentId != null"> #{pojo.contentId}, </if>
+            <if test="pojo.source != null"> #{pojo.source}, </if>
+            <if test="pojo.sourceUrl != null"> #{pojo.sourceUrl}, </if>
+            <if test="pojo.data != null"> #{pojo.data}, </if>
+            <if test="pojo.text != null"> #{pojo.text}, </if>
+            <if test="pojo.wordCount != null"> #{pojo.wordCount}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO cms_content_attribute(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.contentId},
+            #{pojo.source},
+            #{pojo.sourceUrl},
+            #{pojo.data},
+            #{pojo.text},
+            #{pojo.wordCount}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE cms_content_attribute
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.contentId != null"> content_id = #{pojo.contentId}, </if>
+            <if test="pojo.source != null"> source = #{pojo.source}, </if>
+            <if test="pojo.sourceUrl != null"> source_url = #{pojo.sourceUrl}, </if>
+            <if test="pojo.data != null"> data = #{pojo.data}, </if>
+            <if test="pojo.text != null"> text = #{pojo.text}, </if>
+            <if test="pojo.wordCount != null"> word_count = #{pojo.wordCount} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM cms_content_attribute
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.contentId != null"> AND content_id = #{pojo.contentId} </if>
+            <if test="pojo.source != null"> AND source = #{pojo.source} </if>
+            <if test="pojo.sourceUrl != null"> AND source_url = #{pojo.sourceUrl} </if>
+            <if test="pojo.data != null"> AND data = #{pojo.data} </if>
+            <if test="pojo.text != null"> AND text = #{pojo.text} </if>
+            <if test="pojo.wordCount != null"> AND word_count = #{pojo.wordCount} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM cms_content_attribute where id = #{id}
+    </delete>
+</mapper>

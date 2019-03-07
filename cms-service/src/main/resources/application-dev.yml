@@ -1,0 +1,31 @@
+server:
+  port: 8802
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/my_cms?zeroDateTimeBehavior=convertToNull
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    initialSize : 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    #配置项：开启下划线到驼峰的自动转换. 作用：将数据库字段根据驼峰规则自动注入到对象属性。
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    #打印SQL信息
+    com.hehe.mapper: debug

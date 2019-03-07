@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysModuleMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysModule">
+        <result column="id" property="id"/>
+        <result column="url" property="url"/>
+        <result column="authorized_url" property="authorizedUrl"/>
+        <result column="attached" property="attached"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="sort" property="sort"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        url,
+        authorized_url,
+        attached,
+        parent_id,
+        sort
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_module
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.url != null"> url, </if>
+            <if test="pojo.authorizedUrl != null"> authorized_url, </if>
+            <if test="pojo.attached != null"> attached, </if>
+            <if test="pojo.parentId != null"> parent_id, </if>
+            <if test="pojo.sort != null"> sort, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.url != null"> #{pojo.url}, </if>
+            <if test="pojo.authorizedUrl != null"> #{pojo.authorizedUrl}, </if>
+            <if test="pojo.attached != null"> #{pojo.attached}, </if>
+            <if test="pojo.parentId != null"> #{pojo.parentId}, </if>
+            <if test="pojo.sort != null"> #{pojo.sort}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_module(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.url},
+            #{pojo.authorizedUrl},
+            #{pojo.attached},
+            #{pojo.parentId},
+            #{pojo.sort}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_module
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.url != null"> url = #{pojo.url}, </if>
+            <if test="pojo.authorizedUrl != null"> authorized_url = #{pojo.authorizedUrl}, </if>
+            <if test="pojo.attached != null"> attached = #{pojo.attached}, </if>
+            <if test="pojo.parentId != null"> parent_id = #{pojo.parentId}, </if>
+            <if test="pojo.sort != null"> sort = #{pojo.sort} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_module
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.url != null"> AND url = #{pojo.url} </if>
+            <if test="pojo.authorizedUrl != null"> AND authorized_url = #{pojo.authorizedUrl} </if>
+            <if test="pojo.attached != null"> AND attached = #{pojo.attached} </if>
+            <if test="pojo.parentId != null"> AND parent_id = #{pojo.parentId} </if>
+            <if test="pojo.sort != null"> AND sort = #{pojo.sort} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_module where id = #{id}
+    </delete>
+</mapper>

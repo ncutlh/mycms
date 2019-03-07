@@ -11,7 +11,7 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 @SpringBootApplication
 @EnableCircuitBreaker
 @EnableHystrixDashboard
-@MapperScan("com.lyc.site.mapper")
+@MapperScan("com.cms.service.mapper.*")
 public class CmsServiceApplication {
 
 	public static void main(String[] args) {

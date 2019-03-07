@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysAppMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysApp">
+        <result column="id" property="id"/>
+        <result column="site_id" property="siteId"/>
+        <result column="channel" property="channel"/>
+        <result column="app_key" property="appKey"/>
+        <result column="app_secret" property="appSecret"/>
+        <result column="authorized_apis" property="authorizedApis"/>
+        <result column="expiry_minutes" property="expiryMinutes"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        site_id,
+        channel,
+        app_key,
+        app_secret,
+        authorized_apis,
+        expiry_minutes
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_app
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.siteId != null"> site_id, </if>
+            <if test="pojo.channel != null"> channel, </if>
+            <if test="pojo.appKey != null"> app_key, </if>
+            <if test="pojo.appSecret != null"> app_secret, </if>
+            <if test="pojo.authorizedApis != null"> authorized_apis, </if>
+            <if test="pojo.expiryMinutes != null"> expiry_minutes, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> #{pojo.siteId}, </if>
+            <if test="pojo.channel != null"> #{pojo.channel}, </if>
+            <if test="pojo.appKey != null"> #{pojo.appKey}, </if>
+            <if test="pojo.appSecret != null"> #{pojo.appSecret}, </if>
+            <if test="pojo.authorizedApis != null"> #{pojo.authorizedApis}, </if>
+            <if test="pojo.expiryMinutes != null"> #{pojo.expiryMinutes}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_app(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.siteId},
+            #{pojo.channel},
+            #{pojo.appKey},
+            #{pojo.appSecret},
+            #{pojo.authorizedApis},
+            #{pojo.expiryMinutes}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_app
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> site_id = #{pojo.siteId}, </if>
+            <if test="pojo.channel != null"> channel = #{pojo.channel}, </if>
+            <if test="pojo.appKey != null"> app_key = #{pojo.appKey}, </if>
+            <if test="pojo.appSecret != null"> app_secret = #{pojo.appSecret}, </if>
+            <if test="pojo.authorizedApis != null"> authorized_apis = #{pojo.authorizedApis}, </if>
+            <if test="pojo.expiryMinutes != null"> expiry_minutes = #{pojo.expiryMinutes} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_app
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.siteId != null"> AND site_id = #{pojo.siteId} </if>
+            <if test="pojo.channel != null"> AND channel = #{pojo.channel} </if>
+            <if test="pojo.appKey != null"> AND app_key = #{pojo.appKey} </if>
+            <if test="pojo.appSecret != null"> AND app_secret = #{pojo.appSecret} </if>
+            <if test="pojo.authorizedApis != null"> AND authorized_apis = #{pojo.authorizedApis} </if>
+            <if test="pojo.expiryMinutes != null"> AND expiry_minutes = #{pojo.expiryMinutes} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_app where id = #{id}
+    </delete>
+</mapper>

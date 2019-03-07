@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.cms.CmsContentRelatedMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.cms.CmsContentRelated">
+        <result column="id" property="id"/>
+        <result column="content_id" property="contentId"/>
+        <result column="related_content_id" property="relatedContentId"/>
+        <result column="user_id" property="userId"/>
+        <result column="url" property="url"/>
+        <result column="title" property="title"/>
+        <result column="description" property="description"/>
+        <result column="clicks" property="clicks"/>
+        <result column="sort" property="sort"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        content_id,
+        related_content_id,
+        user_id,
+        url,
+        title,
+        description,
+        clicks,
+        sort
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO cms_content_related
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.contentId != null"> content_id, </if>
+            <if test="pojo.relatedContentId != null"> related_content_id, </if>
+            <if test="pojo.userId != null"> user_id, </if>
+            <if test="pojo.url != null"> url, </if>
+            <if test="pojo.title != null"> title, </if>
+            <if test="pojo.description != null"> description, </if>
+            <if test="pojo.clicks != null"> clicks, </if>
+            <if test="pojo.sort != null"> sort, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.contentId != null"> #{pojo.contentId}, </if>
+            <if test="pojo.relatedContentId != null"> #{pojo.relatedContentId}, </if>
+            <if test="pojo.userId != null"> #{pojo.userId}, </if>
+            <if test="pojo.url != null"> #{pojo.url}, </if>
+            <if test="pojo.title != null"> #{pojo.title}, </if>
+            <if test="pojo.description != null"> #{pojo.description}, </if>
+            <if test="pojo.clicks != null"> #{pojo.clicks}, </if>
+            <if test="pojo.sort != null"> #{pojo.sort}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO cms_content_related(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.contentId},
+            #{pojo.relatedContentId},
+            #{pojo.userId},
+            #{pojo.url},
+            #{pojo.title},
+            #{pojo.description},
+            #{pojo.clicks},
+            #{pojo.sort}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE cms_content_related
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.contentId != null"> content_id = #{pojo.contentId}, </if>
+            <if test="pojo.relatedContentId != null"> related_content_id = #{pojo.relatedContentId}, </if>
+            <if test="pojo.userId != null"> user_id = #{pojo.userId}, </if>
+            <if test="pojo.url != null"> url = #{pojo.url}, </if>
+            <if test="pojo.title != null"> title = #{pojo.title}, </if>
+            <if test="pojo.description != null"> description = #{pojo.description}, </if>
+            <if test="pojo.clicks != null"> clicks = #{pojo.clicks}, </if>
+            <if test="pojo.sort != null"> sort = #{pojo.sort} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM cms_content_related
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.contentId != null"> AND content_id = #{pojo.contentId} </if>
+            <if test="pojo.relatedContentId != null"> AND related_content_id = #{pojo.relatedContentId} </if>
+            <if test="pojo.userId != null"> AND user_id = #{pojo.userId} </if>
+            <if test="pojo.url != null"> AND url = #{pojo.url} </if>
+            <if test="pojo.title != null"> AND title = #{pojo.title} </if>
+            <if test="pojo.description != null"> AND description = #{pojo.description} </if>
+            <if test="pojo.clicks != null"> AND clicks = #{pojo.clicks} </if>
+            <if test="pojo.sort != null"> AND sort = #{pojo.sort} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM cms_content_related where id = #{id}
+    </delete>
+</mapper>

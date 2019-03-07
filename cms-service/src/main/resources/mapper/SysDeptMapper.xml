@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysDeptMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysDept">
+        <result column="id" property="id"/>
+        <result column="site_id" property="siteId"/>
+        <result column="name" property="name"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="description" property="description"/>
+        <result column="user_id" property="userId"/>
+        <result column="max_sort" property="maxSort"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        site_id,
+        name,
+        parent_id,
+        description,
+        user_id,
+        max_sort
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_dept
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.siteId != null"> site_id, </if>
+            <if test="pojo.name != null"> name, </if>
+            <if test="pojo.parentId != null"> parent_id, </if>
+            <if test="pojo.description != null"> description, </if>
+            <if test="pojo.userId != null"> user_id, </if>
+            <if test="pojo.maxSort != null"> max_sort, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> #{pojo.siteId}, </if>
+            <if test="pojo.name != null"> #{pojo.name}, </if>
+            <if test="pojo.parentId != null"> #{pojo.parentId}, </if>
+            <if test="pojo.description != null"> #{pojo.description}, </if>
+            <if test="pojo.userId != null"> #{pojo.userId}, </if>
+            <if test="pojo.maxSort != null"> #{pojo.maxSort}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_dept(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.siteId},
+            #{pojo.name},
+            #{pojo.parentId},
+            #{pojo.description},
+            #{pojo.userId},
+            #{pojo.maxSort}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_dept
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> site_id = #{pojo.siteId}, </if>
+            <if test="pojo.name != null"> name = #{pojo.name}, </if>
+            <if test="pojo.parentId != null"> parent_id = #{pojo.parentId}, </if>
+            <if test="pojo.description != null"> description = #{pojo.description}, </if>
+            <if test="pojo.userId != null"> user_id = #{pojo.userId}, </if>
+            <if test="pojo.maxSort != null"> max_sort = #{pojo.maxSort} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_dept
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.siteId != null"> AND site_id = #{pojo.siteId} </if>
+            <if test="pojo.name != null"> AND name = #{pojo.name} </if>
+            <if test="pojo.parentId != null"> AND parent_id = #{pojo.parentId} </if>
+            <if test="pojo.description != null"> AND description = #{pojo.description} </if>
+            <if test="pojo.userId != null"> AND user_id = #{pojo.userId} </if>
+            <if test="pojo.maxSort != null"> AND max_sort = #{pojo.maxSort} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_dept where id = #{id}
+    </delete>
+</mapper>

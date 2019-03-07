@@ -1,68 +1,19 @@
 package com.cms.service.service.sys;
 
-import com.publiccms.common.base.BaseService;
-import com.publiccms.common.tools.CommonUtils;
-import com.publiccms.entities.sys.SysExtendField;
-import com.publiccms.logic.dao.sys.SysExtendFieldDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
+
+import com.cms.pojo.sys.SysExtendField;
+
 import java.util.List;
-import java.util.Set;
+public interface SysExtendFieldService {
 
-/**
- *
- * SysExtendFieldService
- * 
- */
-@Service
-@Transactional
-public class SysExtendFieldService extends BaseService<SysExtendField> {
 
-    private String[] ignoreProperties = new String[] { "id" };
 
-    /**
-     * @param extendId
-     * @return
-     */
-    @Transactional(readOnly = true)
-    public List<SysExtendField> getList(Integer extendId) {
-        return dao.getList(extendId);
-    }
+     int insert(SysExtendField pojo);
 
-    /**
-     * @param extendId
-     * @param entitys
-     */
-    public void update(Integer extendId, List<SysExtendField> entitys) {
-        if (CommonUtils.notEmpty(extendId)) {
-            Set<String> codeList = new HashSet<>();
-            if (CommonUtils.notEmpty(entitys)) {
-                for (SysExtendField entity : entitys) {
-                    if (0 != entity.getId().getExtendId()) {
-                        if (null == getEntity(entity.getId())) {
-                            save(entity);
-                        } else {
-                            update(entity.getId(), entity, ignoreProperties);
-                        }
-                    } else {
-                        entity.getId().setExtendId(extendId);
-                        save(entity);
-                    }
-                    codeList.add(entity.getId().getCode());
-                }
-            }
-            for (SysExtendField extend : getList(extendId)) {
-                if (!codeList.contains(extend.getId().getCode())) {
-                    delete(extend.getId());
-                }
-            }
-        }
-    }
+     int insertList(List< SysExtendField> pojos);
 
-    @Autowired
-    private SysExtendFieldDao dao;
+     List<SysExtendField> select(SysExtendField pojo);
+     int update(SysExtendField pojo);
 
 }

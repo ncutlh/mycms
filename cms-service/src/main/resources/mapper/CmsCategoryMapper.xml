@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.cms.CmsCategoryMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.cms.CmsCategory">
+        <result column="id" property="id"/>
+
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        site_id,
+        name,
+        parent_id,
+        type_id,
+        child_ids,
+        tag_type_ids,
+        code,
+        template_path,
+        path,
+        url,
+        content_path,
+        page_size,
+        sort,
+        extend_id
+    </sql>
+
+    <select id="selectById" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM cms_category
+        where id = #{id}
+    </select>
+
+
+</mapper>

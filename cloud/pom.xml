@@ -13,7 +13,7 @@
         <module>../cms-common</module>
         <module>../cms-common-eureka</module>
         <module>../cms-common-config</module>
-        <module>../cms-service-api</module>
+        <module>cms-service-api</module>
         <module>../cms-service</module>
         <module>../cms-web-admin</module>
         <module>../cms-web</module>

@@ -1,50 +1,16 @@
 package com.cms.service.service.cms;
 
-import com.publiccms.common.base.BaseService;
-import com.publiccms.entities.cms.CmsContentAttribute;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.io.Serializable;
-import java.util.List;
+import com.cms.pojo.cms.CmsContentAttribute;
+import com.cms.service.common.BaseService;
 
 /**
  *
  * CmsContentAttributeService
  * 
  */
-@Service
-@Transactional
-public class CmsContentAttributeService extends BaseService<CmsContentAttribute> {
-    
-    private String[] ignoreProperties = new String[] { "contentId" };
 
-    /**
-     * @param ids
-     * @return results page
-     */
-    public List<CmsContentAttribute> getEntitysWithoutText(Serializable[] ids) {
-        return dao.getEntitys(ids);
-    }
+public interface CmsContentAttributeService extends BaseService<CmsContentAttribute> {
     
-    /**
-     * @param contentId
-     * @param entity
-     */
-    public void updateAttribute(Long contentId, CmsContentAttribute entity) {
-        CmsContentAttribute attribute = getEntity(contentId);
-        if (null != attribute) {
-            if (null != entity) {
-                update(attribute.getContentId(), entity, ignoreProperties);
-            } else {
-                delete(attribute.getContentId());
-            }
-        } else {
-            if (null != entity) {
-                entity.setContentId(contentId);
-                save(entity);
-            }
-        }
-    }
+
     
 }

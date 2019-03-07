@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.cms.CmsContentFileMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.cms.CmsContentFile">
+        <result column="id" property="id"/>
+        <result column="content_id" property="contentId"/>
+        <result column="user_id" property="userId"/>
+        <result column="file_path" property="filePath"/>
+        <result column="size" property="size"/>
+        <result column="clicks" property="clicks"/>
+        <result column="sort" property="sort"/>
+        <result column="description" property="description"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        content_id,
+        user_id,
+        file_path,
+        size,
+        clicks,
+        sort,
+        description
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO cms_content_file
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.contentId != null"> content_id, </if>
+            <if test="pojo.userId != null"> user_id, </if>
+            <if test="pojo.filePath != null"> file_path, </if>
+            <if test="pojo.size != null"> size, </if>
+            <if test="pojo.clicks != null"> clicks, </if>
+            <if test="pojo.sort != null"> sort, </if>
+            <if test="pojo.description != null"> description, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.contentId != null"> #{pojo.contentId}, </if>
+            <if test="pojo.userId != null"> #{pojo.userId}, </if>
+            <if test="pojo.filePath != null"> #{pojo.filePath}, </if>
+            <if test="pojo.size != null"> #{pojo.size}, </if>
+            <if test="pojo.clicks != null"> #{pojo.clicks}, </if>
+            <if test="pojo.sort != null"> #{pojo.sort}, </if>
+            <if test="pojo.description != null"> #{pojo.description}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO cms_content_file(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.contentId},
+            #{pojo.userId},
+            #{pojo.filePath},
+            #{pojo.size},
+            #{pojo.clicks},
+            #{pojo.sort},
+            #{pojo.description}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE cms_content_file
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.contentId != null"> content_id = #{pojo.contentId}, </if>
+            <if test="pojo.userId != null"> user_id = #{pojo.userId}, </if>
+            <if test="pojo.filePath != null"> file_path = #{pojo.filePath}, </if>
+            <if test="pojo.size != null"> size = #{pojo.size}, </if>
+            <if test="pojo.clicks != null"> clicks = #{pojo.clicks}, </if>
+            <if test="pojo.sort != null"> sort = #{pojo.sort}, </if>
+            <if test="pojo.description != null"> description = #{pojo.description} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM cms_content_file
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.contentId != null"> AND content_id = #{pojo.contentId} </if>
+            <if test="pojo.userId != null"> AND user_id = #{pojo.userId} </if>
+            <if test="pojo.filePath != null"> AND file_path = #{pojo.filePath} </if>
+            <if test="pojo.size != null"> AND size = #{pojo.size} </if>
+            <if test="pojo.clicks != null"> AND clicks = #{pojo.clicks} </if>
+            <if test="pojo.sort != null"> AND sort = #{pojo.sort} </if>
+            <if test="pojo.description != null"> AND description = #{pojo.description} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM cms_content_file where id = #{id}
+    </delete>
+</mapper>

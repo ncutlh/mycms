@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysTaskMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysTask">
+        <result column="id" property="id"/>
+        <result column="site_id" property="siteId"/>
+        <result column="name" property="name"/>
+        <result column="status" property="status"/>
+        <result column="cron_expression" property="cronExpression"/>
+        <result column="description" property="description"/>
+        <result column="file_path" property="filePath"/>
+        <result column="update_date" property="updateDate"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        site_id,
+        name,
+        status,
+        cron_expression,
+        description,
+        file_path,
+        update_date
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.siteId != null"> site_id, </if>
+            <if test="pojo.name != null"> name, </if>
+            <if test="pojo.status != null"> status, </if>
+            <if test="pojo.cronExpression != null"> cron_expression, </if>
+            <if test="pojo.description != null"> description, </if>
+            <if test="pojo.filePath != null"> file_path, </if>
+            <if test="pojo.updateDate != null"> update_date, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> #{pojo.siteId}, </if>
+            <if test="pojo.name != null"> #{pojo.name}, </if>
+            <if test="pojo.status != null"> #{pojo.status}, </if>
+            <if test="pojo.cronExpression != null"> #{pojo.cronExpression}, </if>
+            <if test="pojo.description != null"> #{pojo.description}, </if>
+            <if test="pojo.filePath != null"> #{pojo.filePath}, </if>
+            <if test="pojo.updateDate != null"> #{pojo.updateDate}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_task(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.siteId},
+            #{pojo.name},
+            #{pojo.status},
+            #{pojo.cronExpression},
+            #{pojo.description},
+            #{pojo.filePath},
+            #{pojo.updateDate}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_task
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> site_id = #{pojo.siteId}, </if>
+            <if test="pojo.name != null"> name = #{pojo.name}, </if>
+            <if test="pojo.status != null"> status = #{pojo.status}, </if>
+            <if test="pojo.cronExpression != null"> cron_expression = #{pojo.cronExpression}, </if>
+            <if test="pojo.description != null"> description = #{pojo.description}, </if>
+            <if test="pojo.filePath != null"> file_path = #{pojo.filePath}, </if>
+            <if test="pojo.updateDate != null"> update_date = #{pojo.updateDate} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_task
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.siteId != null"> AND site_id = #{pojo.siteId} </if>
+            <if test="pojo.name != null"> AND name = #{pojo.name} </if>
+            <if test="pojo.status != null"> AND status = #{pojo.status} </if>
+            <if test="pojo.cronExpression != null"> AND cron_expression = #{pojo.cronExpression} </if>
+            <if test="pojo.description != null"> AND description = #{pojo.description} </if>
+            <if test="pojo.filePath != null"> AND file_path = #{pojo.filePath} </if>
+            <if test="pojo.updateDate != null"> AND update_date = #{pojo.updateDate} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_task where id = #{id}
+    </delete>
+</mapper>

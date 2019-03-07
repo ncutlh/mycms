@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.cms.CmsContentMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.cms.CmsContent">
+        <result column="id" property="id"/>
+        <result column="site_id" property="siteId"/>
+        <result column="title" property="title"/>
+        <result column="user_id" property="userId"/>
+        <result column="check_user_id" property="checkUserId"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="model_id" property="modelId"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="author" property="author"/>
+        <result column="editor" property="editor"/>
+        <result column="url" property="url"/>
+        <result column="description" property="description"/>
+        <result column="tag_ids" property="tagIds"/>
+        <result column="cover" property="cover"/>
+        <result column="childs" property="childs"/>
+        <result column="scores" property="scores"/>
+        <result column="comments" property="comments"/>
+        <result column="clicks" property="clicks"/>
+        <result column="publish_date" property="publishDate"/>
+        <result column="check_date" property="checkDate"/>
+        <result column="update_date" property="updateDate"/>
+        <result column="create_date" property="createDate"/>
+        <result column="sort" property="sort"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        site_id,
+        title,
+        user_id,
+        check_user_id,
+        category_id,
+        model_id,
+        parent_id,
+        author,
+        editor,
+        url,
+        description,
+        tag_ids,
+        cover,
+        childs,
+        scores,
+        comments,
+        clicks,
+        publish_date,
+        check_date,
+        update_date,
+        create_date,
+        sort,
+        status
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO cms_content
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.siteId != null"> site_id, </if>
+            <if test="pojo.title != null"> title, </if>
+            <if test="pojo.userId != null"> user_id, </if>
+            <if test="pojo.checkUserId != null"> check_user_id, </if>
+            <if test="pojo.categoryId != null"> category_id, </if>
+            <if test="pojo.modelId != null"> model_id, </if>
+            <if test="pojo.parentId != null"> parent_id, </if>
+            <if test="pojo.author != null"> author, </if>
+            <if test="pojo.editor != null"> editor, </if>
+            <if test="pojo.url != null"> url, </if>
+            <if test="pojo.description != null"> description, </if>
+            <if test="pojo.tagIds != null"> tag_ids, </if>
+            <if test="pojo.cover != null"> cover, </if>
+            <if test="pojo.childs != null"> childs, </if>
+            <if test="pojo.scores != null"> scores, </if>
+            <if test="pojo.comments != null"> comments, </if>
+            <if test="pojo.clicks != null"> clicks, </if>
+            <if test="pojo.publishDate != null"> publish_date, </if>
+            <if test="pojo.checkDate != null"> check_date, </if>
+            <if test="pojo.updateDate != null"> update_date, </if>
+            <if test="pojo.createDate != null"> create_date, </if>
+            <if test="pojo.sort != null"> sort, </if>
+            <if test="pojo.status != null"> status, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> #{pojo.siteId}, </if>
+            <if test="pojo.title != null"> #{pojo.title}, </if>
+            <if test="pojo.userId != null"> #{pojo.userId}, </if>
+            <if test="pojo.checkUserId != null"> #{pojo.checkUserId}, </if>
+            <if test="pojo.categoryId != null"> #{pojo.categoryId}, </if>
+            <if test="pojo.modelId != null"> #{pojo.modelId}, </if>
+            <if test="pojo.parentId != null"> #{pojo.parentId}, </if>
+            <if test="pojo.author != null"> #{pojo.author}, </if>
+            <if test="pojo.editor != null"> #{pojo.editor}, </if>
+            <if test="pojo.url != null"> #{pojo.url}, </if>
+            <if test="pojo.description != null"> #{pojo.description}, </if>
+            <if test="pojo.tagIds != null"> #{pojo.tagIds}, </if>
+            <if test="pojo.cover != null"> #{pojo.cover}, </if>
+            <if test="pojo.childs != null"> #{pojo.childs}, </if>
+            <if test="pojo.scores != null"> #{pojo.scores}, </if>
+            <if test="pojo.comments != null"> #{pojo.comments}, </if>
+            <if test="pojo.clicks != null"> #{pojo.clicks}, </if>
+            <if test="pojo.publishDate != null"> #{pojo.publishDate}, </if>
+            <if test="pojo.checkDate != null"> #{pojo.checkDate}, </if>
+            <if test="pojo.updateDate != null"> #{pojo.updateDate}, </if>
+            <if test="pojo.createDate != null"> #{pojo.createDate}, </if>
+            <if test="pojo.sort != null"> #{pojo.sort}, </if>
+            <if test="pojo.status != null"> #{pojo.status}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO cms_content(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.siteId},
+            #{pojo.title},
+            #{pojo.userId},
+            #{pojo.checkUserId},
+            #{pojo.categoryId},
+            #{pojo.modelId},
+            #{pojo.parentId},
+            #{pojo.author},
+            #{pojo.editor},
+            #{pojo.url},
+            #{pojo.description},
+            #{pojo.tagIds},
+            #{pojo.cover},
+            #{pojo.childs},
+            #{pojo.scores},
+            #{pojo.comments},
+            #{pojo.clicks},
+            #{pojo.publishDate},
+            #{pojo.checkDate},
+            #{pojo.updateDate},
+            #{pojo.createDate},
+            #{pojo.sort},
+            #{pojo.status}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE cms_content
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.siteId != null"> site_id = #{pojo.siteId}, </if>
+            <if test="pojo.title != null"> title = #{pojo.title}, </if>
+            <if test="pojo.userId != null"> user_id = #{pojo.userId}, </if>
+            <if test="pojo.checkUserId != null"> check_user_id = #{pojo.checkUserId}, </if>
+            <if test="pojo.categoryId != null"> category_id = #{pojo.categoryId}, </if>
+            <if test="pojo.modelId != null"> model_id = #{pojo.modelId}, </if>
+            <if test="pojo.parentId != null"> parent_id = #{pojo.parentId}, </if>
+            <if test="pojo.author != null"> author = #{pojo.author}, </if>
+            <if test="pojo.editor != null"> editor = #{pojo.editor}, </if>
+            <if test="pojo.url != null"> url = #{pojo.url}, </if>
+            <if test="pojo.description != null"> description = #{pojo.description}, </if>
+            <if test="pojo.tagIds != null"> tag_ids = #{pojo.tagIds}, </if>
+            <if test="pojo.cover != null"> cover = #{pojo.cover}, </if>
+            <if test="pojo.childs != null"> childs = #{pojo.childs}, </if>
+            <if test="pojo.scores != null"> scores = #{pojo.scores}, </if>
+            <if test="pojo.comments != null"> comments = #{pojo.comments}, </if>
+            <if test="pojo.clicks != null"> clicks = #{pojo.clicks}, </if>
+            <if test="pojo.publishDate != null"> publish_date = #{pojo.publishDate}, </if>
+            <if test="pojo.checkDate != null"> check_date = #{pojo.checkDate}, </if>
+            <if test="pojo.updateDate != null"> update_date = #{pojo.updateDate}, </if>
+            <if test="pojo.createDate != null"> create_date = #{pojo.createDate}, </if>
+            <if test="pojo.sort != null"> sort = #{pojo.sort}, </if>
+            <if test="pojo.status != null"> status = #{pojo.status} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM cms_content
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.siteId != null"> AND site_id = #{pojo.siteId} </if>
+            <if test="pojo.title != null"> AND title = #{pojo.title} </if>
+            <if test="pojo.userId != null"> AND user_id = #{pojo.userId} </if>
+            <if test="pojo.checkUserId != null"> AND check_user_id = #{pojo.checkUserId} </if>
+            <if test="pojo.categoryId != null"> AND category_id = #{pojo.categoryId} </if>
+            <if test="pojo.modelId != null"> AND model_id = #{pojo.modelId} </if>
+            <if test="pojo.parentId != null"> AND parent_id = #{pojo.parentId} </if>
+            <if test="pojo.author != null"> AND author = #{pojo.author} </if>
+            <if test="pojo.editor != null"> AND editor = #{pojo.editor} </if>
+            <if test="pojo.url != null"> AND url = #{pojo.url} </if>
+            <if test="pojo.description != null"> AND description = #{pojo.description} </if>
+            <if test="pojo.tagIds != null"> AND tag_ids = #{pojo.tagIds} </if>
+            <if test="pojo.cover != null"> AND cover = #{pojo.cover} </if>
+            <if test="pojo.childs != null"> AND childs = #{pojo.childs} </if>
+            <if test="pojo.scores != null"> AND scores = #{pojo.scores} </if>
+            <if test="pojo.comments != null"> AND comments = #{pojo.comments} </if>
+            <if test="pojo.clicks != null"> AND clicks = #{pojo.clicks} </if>
+            <if test="pojo.publishDate != null"> AND publish_date = #{pojo.publishDate} </if>
+            <if test="pojo.checkDate != null"> AND check_date = #{pojo.checkDate} </if>
+            <if test="pojo.updateDate != null"> AND update_date = #{pojo.updateDate} </if>
+            <if test="pojo.createDate != null"> AND create_date = #{pojo.createDate} </if>
+            <if test="pojo.sort != null"> AND sort = #{pojo.sort} </if>
+            <if test="pojo.status != null"> AND status = #{pojo.status} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM cms_content where id = #{id}
+    </delete>
+</mapper>

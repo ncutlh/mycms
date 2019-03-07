@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysExtendFieldMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysExtendField">
+        <result column="id" property="id"/>
+        <result column="maxlength" property="maxlength"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="input_type" property="inputType"/>
+        <result column="default_value" property="defaultValue"/>
+        <result column="dictionary_id" property="dictionaryId"/>
+        <result column="sort" property="sort"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        maxlength,
+        name,
+        description,
+        input_type,
+        default_value,
+        dictionary_id,
+        sort
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_extend_field
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.maxlength != null"> maxlength, </if>
+            <if test="pojo.name != null"> name, </if>
+            <if test="pojo.description != null"> description, </if>
+            <if test="pojo.inputType != null"> input_type, </if>
+            <if test="pojo.defaultValue != null"> default_value, </if>
+            <if test="pojo.dictionaryId != null"> dictionary_id, </if>
+            <if test="pojo.sort != null"> sort, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.maxlength != null"> #{pojo.maxlength}, </if>
+            <if test="pojo.name != null"> #{pojo.name}, </if>
+            <if test="pojo.description != null"> #{pojo.description}, </if>
+            <if test="pojo.inputType != null"> #{pojo.inputType}, </if>
+            <if test="pojo.defaultValue != null"> #{pojo.defaultValue}, </if>
+            <if test="pojo.dictionaryId != null"> #{pojo.dictionaryId}, </if>
+            <if test="pojo.sort != null"> #{pojo.sort}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_extend_field(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.maxlength},
+            #{pojo.name},
+            #{pojo.description},
+            #{pojo.inputType},
+            #{pojo.defaultValue},
+            #{pojo.dictionaryId},
+            #{pojo.sort}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_extend_field
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.maxlength != null"> maxlength = #{pojo.maxlength}, </if>
+            <if test="pojo.name != null"> name = #{pojo.name}, </if>
+            <if test="pojo.description != null"> description = #{pojo.description}, </if>
+            <if test="pojo.inputType != null"> input_type = #{pojo.inputType}, </if>
+            <if test="pojo.defaultValue != null"> default_value = #{pojo.defaultValue}, </if>
+            <if test="pojo.dictionaryId != null"> dictionary_id = #{pojo.dictionaryId}, </if>
+            <if test="pojo.sort != null"> sort = #{pojo.sort} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_extend_field
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.maxlength != null"> AND maxlength = #{pojo.maxlength} </if>
+            <if test="pojo.name != null"> AND name = #{pojo.name} </if>
+            <if test="pojo.description != null"> AND description = #{pojo.description} </if>
+            <if test="pojo.inputType != null"> AND input_type = #{pojo.inputType} </if>
+            <if test="pojo.defaultValue != null"> AND default_value = #{pojo.defaultValue} </if>
+            <if test="pojo.dictionaryId != null"> AND dictionary_id = #{pojo.dictionaryId} </if>
+            <if test="pojo.sort != null"> AND sort = #{pojo.sort} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_extend_field where id = #{id}
+    </delete>
+</mapper>

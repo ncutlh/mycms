@@ -1,59 +1,20 @@
 package com.cms.service.service.sys;
 
-import com.publiccms.common.base.BaseService;
-import com.publiccms.common.handler.PageHandler;
-import com.publiccms.entities.sys.SysTask;
-import com.publiccms.logic.dao.sys.SysTaskDao;
-import org.springframework.beans.factory.annotation.Autowired;
+
+
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import javax.annotation.Resource;
+import java.util.List;
+import com.cms.pojo.sys.SysTask;
+public interface  SysTaskService {
 
-import java.util.Date;
 
-// Generated 2015-7-3 16:18:22 by com.publiccms.common.source.SourceGenerator
+    int insert(SysTask pojo);
 
-/**
- *
- * SysTaskService
- * 
- */
-@Service
-@Transactional
-public class SysTaskService extends BaseService<SysTask> {
+    int insertList(List< SysTask> pojos);
 
-    /**
-     * @param siteId
-     * @param status
-     * @param beginUpdateDate
-     * @param pageIndex
-     * @param pageSize
-     * @return
-     */
-    @Transactional(readOnly = true)
-    public PageHandler getPage(Short siteId, Integer status, Date beginUpdateDate, Integer pageIndex, Integer pageSize) {
-        return dao.getPage(siteId, status, beginUpdateDate, pageIndex, pageSize);
-    }
+    List<SysTask> select(SysTask pojo);
 
-    /**
-     * @param id
-     * @param status
-     */
-    public void updateStatus(Integer id, int status) {
-        SysTask entity = getEntity(id);
-        if (null != entity) {
-            entity.setStatus(status);
-        }
-    }
+    int update(SysTask pojo);
 
-    /**
-     * @param id
-     * @return
-     */
-    public boolean updateStatusToRunning(Integer id) {
-        return 1 == dao.updateStatusToRunning(id);
-    }
-
-    @Autowired
-    private SysTaskDao dao;
-    
 }

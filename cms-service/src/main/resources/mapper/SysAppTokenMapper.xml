@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.service.mapper.sys.SysAppTokenMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.cms.pojo.sys.SysAppToken">
+        <result column="id" property="id"/>
+        <result column="auth_token" property="authToken"/>
+        <result column="app_id" property="appId"/>
+        <result column="create_date" property="createDate"/>
+        <result column="expiry_date" property="expiryDate"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        auth_token,
+        app_id,
+        create_date,
+        expiry_date
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_app_token
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.authToken != null"> auth_token, </if>
+            <if test="pojo.appId != null"> app_id, </if>
+            <if test="pojo.createDate != null"> create_date, </if>
+            <if test="pojo.expiryDate != null"> expiry_date, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.authToken != null"> #{pojo.authToken}, </if>
+            <if test="pojo.appId != null"> #{pojo.appId}, </if>
+            <if test="pojo.createDate != null"> #{pojo.createDate}, </if>
+            <if test="pojo.expiryDate != null"> #{pojo.expiryDate}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_app_token(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.authToken},
+            #{pojo.appId},
+            #{pojo.createDate},
+            #{pojo.expiryDate}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE sys_app_token
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.authToken != null"> auth_token = #{pojo.authToken}, </if>
+            <if test="pojo.appId != null"> app_id = #{pojo.appId}, </if>
+            <if test="pojo.createDate != null"> create_date = #{pojo.createDate}, </if>
+            <if test="pojo.expiryDate != null"> expiry_date = #{pojo.expiryDate} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM sys_app_token
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.authToken != null"> AND auth_token = #{pojo.authToken} </if>
+            <if test="pojo.appId != null"> AND app_id = #{pojo.appId} </if>
+            <if test="pojo.createDate != null"> AND create_date = #{pojo.createDate} </if>
+            <if test="pojo.expiryDate != null"> AND expiry_date = #{pojo.expiryDate} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM sys_app_token where id = #{id}
+    </delete>
+</mapper>

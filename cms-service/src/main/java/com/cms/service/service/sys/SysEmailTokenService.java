@@ -1,44 +1,20 @@
 package com.cms.service.service.sys;
 
-import com.publiccms.common.base.BaseService;
-import com.publiccms.common.handler.PageHandler;
-import com.publiccms.entities.sys.SysEmailToken;
-import com.publiccms.logic.dao.sys.SysEmailTokenDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 
-/**
- *
- * SysEmailTokenService
- * 
- */
-@Service
-@Transactional
-public class SysEmailTokenService extends BaseService<SysEmailToken> {
+import com.cms.pojo.sys.SysEmailToken;
 
-    /**
-     * @param userId
-     * @param pageIndex
-     * @param pageSize
-     * @return results page
-     */
-    @Transactional(readOnly = true)
-    public PageHandler getPage(Long userId, Integer pageIndex, Integer pageSize) {
-        return dao.getPage(userId, pageIndex, pageSize);
-    }
+import java.util.List;
+public interface SysEmailTokenService {
 
-    /**
-     * @param now
-     * @return number of data deleted
-     */
-    public int delete(Date now) {
-        return dao.delete(now);
-    }
-    
-    @Autowired
-    private SysEmailTokenDao dao;
-    
+
+
+     int insert(SysEmailToken pojo);
+
+     int insertList(List< SysEmailToken> pojos);
+
+     List<SysEmailToken> select(SysEmailToken pojo);
+
+     int update(SysEmailToken pojo);
+
 }
